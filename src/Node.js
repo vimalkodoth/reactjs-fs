@@ -9,11 +9,11 @@ const Node = ({ id }) => {
         useTree({ root: id });
     const { fs } = useContext(FileSystemContext);
     return (
-        <li
-            className={`${fs[id].type === FILE ? 'file' : 'folder'}`}
-            onClick={(e) => onClickListener(e, { type: fs[id].type })}
-        >
-            <span className="name">
+        <li className={`${fs[id].type === FILE ? 'file' : 'folder'}`}>
+            <span
+                className="name"
+                onClick={(e) => onClickListener(e, { type: fs[id].type })}
+            >
                 {fs[id].name}{' '}
                 {fs[id].parentID !== null && (
                     <span

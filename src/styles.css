@@ -33,7 +33,8 @@ span.name {
     background-size: 20px;
 }
 
-.folder {
+.name,
+.delete {
     cursor: pointer;
 }
 
