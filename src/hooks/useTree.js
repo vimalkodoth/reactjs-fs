@@ -7,7 +7,7 @@ const useTree = ({ root }) => {
     const { fs, addEntry, deleteEntry } = useContext(FileSystemContext);
     const children = fs[root]?.children?.slice(0);
 
-    const onClickListener = (e, type) => {
+    const onClickListener = (e, { type }) => {
         if (type === FILE) return;
         setShowFileInput((state) => !state);
     };
@@ -18,8 +18,8 @@ const useTree = ({ root }) => {
         setShowFileInput((state) => !state);
     };
 
-    const onDeleteFile = (e, { root }) => {
-        deleteEntry({ id: root });
+    const onDeleteFile = (e, { id }) => {
+        deleteEntry({ id });
         setShowFileInput((state) => !state);
     };
 
