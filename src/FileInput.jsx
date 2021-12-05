@@ -1,24 +1,8 @@
-import { useState } from 'react';
 import { FILE, FOLDER } from './constants';
+import useFileInput from './hooks/useFileInput';
 
 const FileInput = ({ display, onKeyDown }) => {
-    const [state, setState] = useState({
-        textInput: '',
-        type: FILE,
-    });
-
-    const onChange = (e) => {
-        e.preventDefault();
-        setState((state) => ({
-            ...state,
-            [e.target.name]: e.target.value,
-        }));
-    };
-
-    const onClick = (e) => {
-        e.preventDefault();
-        e.stopPropagation();
-    };
+    const { state, onChange, onClick } = useFileInput();
     return (
         <form style={{ display: display ? 'block' : 'none' }} onClick={onClick}>
             <input

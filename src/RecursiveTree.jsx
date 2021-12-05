@@ -1,28 +1,19 @@
 import { FILE } from './constants';
 import FileInput from './FileInput.jsx';
-import { useContext, useState } from 'react';
+import { useContext } from 'react';
 import { FileSystemContext } from './FileSystemContext';
+import useTree from './hooks/useTree';
 
 const RecursiveTree = ({ root }) => {
-    const { fs, addEntry, deleteEntry } = useContext(FileSystemContext);
-    const children = fs[root]?.children?.slice(0);
-    const [showFileInput, setShowFileInput] = useState(false);
+    const { fs } = useContext(FileSystemContext);
 
-    const onClickListener = (e, type) => {
-        if (type === FILE) return;
-        setShowFileInput((state) => !state);
-    };
-
-    const onFileInputKeyDown = (e, { type }) => {
-        const inputText = e.target.value;
-        addEntry({ name: inputText, fileType: type, id: root });
-        setShowFileInput((state) => !state);
-    };
-
-    const onDeleteFile = (e, { root }) => {
-        deleteEntry({ id: root });
-        setShowFileInput((state) => !state);
-    };
+    const {
+        onClickListener,
+        onFileInputKeyDown,
+        onDeleteFile,
+        showFileInput,
+        children,
+    } = useTree({ root });
 
     return (
         <>

@@ -5,7 +5,6 @@ import { useContext } from 'react';
 import { FileSystemContext } from './FileSystemContext';
 
 const FileSystem = ({ initData }) => {
-    const root = 0;
     const { undoEntry, isUndo } = useContext(FileSystemContext);
     return (
         <div className="fileSystem">
@@ -17,7 +16,7 @@ const FileSystem = ({ initData }) => {
                         disabled={!isUndo}
                     />
                 </div>
-                <RecursiveTree fileSystem={initData} root={root} />
+                <RecursiveTree fileSystem={initData} root={0} />
             </ul>
         </div>
     );
