@@ -1,0 +1,46 @@
+.file,
+.folder {
+    background-repeat: no-repeat;
+    background-size: 1.3rem;
+    background-position: 0 0.8rem;
+    margin: 1rem 0;
+    padding: 0.6rem 2rem;
+    list-style: none;
+}
+
+.file {
+    background-image: url('./static/file.png');
+    background-position: 0px 10px;
+}
+
+.folder {
+    background-image: url('./static/folder.png');
+}
+
+span.name {
+    display: flex;
+    align-items: center;
+}
+
+.delete {
+    display: inline-block;
+    content: '';
+    width: 25px;
+    height: 25px;
+    background-image: url('./static/delete.png');
+    background-repeat: no-repeat;
+    margin-left: 10px;
+    background-size: 20px;
+}
+
+.folder {
+    cursor: pointer;
+}
+
+.fs-button {
+    margin: 20px 0;
+}
+
+.fs-button button {
+    font-size: 1.5rem;
+}
